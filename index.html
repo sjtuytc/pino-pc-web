@@ -281,37 +281,38 @@ Experimental results demonstrate that the observer used in PINO-PC outperforms t
                     <span style="font-size: 110%">
                         <span style="font-weight: bold">Drag reduction curves comparing several flow control methods.</span> The x-axis denotes the non-dimensional timestep, and the y-axis denotes the drag reduction rate (DR) related to the uncontrolled case.
                         We experiment with different generalization settings, including interpolation, extrapolation, and super-extrapolation. 
-                        <span style="font-weight: bold">Interpolation</span> refers to cases where the testing Reynolds number is smaller than the largest training Reynolds number but larger than the smallest training Reynolds number. 
-                        <span style="font-weight: bold">Extrapolation</span> occurs when the testing Reynolds number surpasses all Reynolds numbers in the training data. 
-                        <span style="font-weight: bold">Super-extrapolation</span> is a setup in which the model is solely trained on one low Reynolds number and is then tested on a wide range of higher Reynolds numbers.
+                        <i>Interpolation</i> refers to cases where the testing Reynolds number is smaller than the largest training Reynolds number but larger than the smallest training Reynolds number. 
+                        <i>Extrapolation</i> occurs when the testing Reynolds number surpasses all Reynolds numbers in the training data. 
+                        <i>Super-extrapolation</i> is a setup in which the model is solely trained on one low Reynolds number and is then tested on a wide range of higher Reynolds numbers.
                     </span>
                     <br>
                     <br>
                     <br>
 
                     <h3 class="title is-4"><span
-                            class="dvima">Ablation Studies </span></h3>
+                            class="dvima">Scatter Plots</span></h3>
 
                     <br>
 
-                    <img src="assets/images/ablation_input_process.png" class="interpolation-image"
+                    <img src="assets/images/scatter_plot_v1.png" class="interpolation-image"
                          alt="" style="display: block; margin-left: auto; margin-right: auto"/>
                     <br>
                     <span style="font-size: 110%">
-                        <span style="font-weight: bold">Ablation on visual tokenizers.</span> We compare the performance of VIMA-200M model across different visual tokenizers. Our proposed object tokens outperform all methods that learn directly from raw pixels, and <i>Object Perceiver</i> that downsamples the object sequence to a fixed number of tokens.
+                        <span style="font-weight: bold">Scatter plot of predicted velocities from the observer model (corresponding to the y-axis) 
+                            and the gt velocities (corresponding to the x-axis) under the generalization experiments.</span> 
+                            We normalize the velocities into the [0, 1] range before plotting. We show the y=x line in green 
+                            and we show the fitting line for each plot in red. The more accurate a model is, the closer the plotted 
+                            points should surround the y=x line. In this experiment, we compare our full model to MP-CNN and an 
+                            ablated model of ours which does not use physics-informed learning L<sub>pde</sub>. The comparison is conducted in 
+                            three generalization setups: interpolation, extrapolation, and super-extrapolation.
                     </span>
-
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-
+<!-- 
                     <img src="assets/images/global_seq_mod.png" class="interpolation-image"
                          alt="" style="display: block; margin-left: auto; margin-right: auto"/>
                     <br>
                     <span style="font-size: 110%">
                         <span style="font-weight: bold">Ablation on prompt conditioning.</span> We compare our method (<i>xattn</i>: cross-attention prompt conditioning) with a vanilla transformer decoder (<i>gpt-decoder</i>) across different model sizes. Cross-attention is especially helpful in low-parameter regime and for harder generalization tasks.
-                    </span>
+                    </span> -->
                 </div>
             </div>
 
@@ -329,14 +330,22 @@ Experimental results demonstrate that the observer used in PINO-PC outperforms t
                             class="dvima">Conclusion</span></h2>
 
                     <p style="font-size: 125%">
-                        In this work, we introduce a novel <i>multimodal</i> prompting formulation that converts diverse
-                        robot manipulation tasks into a uniform sequence modeling problem. We instantiate this
-                        formulation in VIMA-Bench, a diverse benchmark with multimodal tasks and systematic evaluation
-                        protocols for generalization. We propose VIMA, a conceptually simple transformer-based agent
-                        capable of solving tasks such as visual goal reaching, one-shot video imitation, and novel
-                        concept grounding with a single model. Through comprehensive experiments, we show that VIMA
-                        exhibits strong model scalability and zero-shot generalization. Therefore, we recommend our
-                        agent design as a solid starting point for future work.
+                        In this study, we have addressed the crucial issue of turbulence control within wall-bounded flows, 
+                        a phenomenon of significant relevance in numerous scientific and engineering domains. 
+                        Building upon the foundations of neural operators, our proposed framework, PINO-PC, 
+                        integrates an observer model and a policy model to achieve effective control. 
+                        By employing recurrent neural operators and multi-layer Fourier neural operators, 
+                        our approach exhibits adaptability across a diverse range of Reynolds numbers. 
+                        Furthermore, the incorporation of physics-informed learning techniques enhances 
+                        the model's performance in unforeseen scenarios.
+                        Through extensive numerical investigations, we have demonstrated the superior performance of 
+                        neural operators compared to alternative machine-learning approaches. Our proposed control method 
+                        not only outperforms other machine learning techniques but also achieves a remarkable 43.5% reduction 
+                        in drag for Reynolds numbers not present in the training data. This performance surpasses established 
+                        control methodologies, including opposition control and conventional optimal control techniques.
+                        Overall, the results presented in this paper showcase the potential of our PINO-PC framework in 
+                        revolutionizing turbulence control strategies, with promising applications across various fields, 
+                        from aerospace engineering to biomedical devices.
                     </p>
 
                 </div>
