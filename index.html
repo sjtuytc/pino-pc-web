@@ -130,7 +130,7 @@
                 <h2 class="title is-3">Abstract</h2>
                 <div class="content has-text-justified">
                     <p style="font-size: 125%">
-                        Turbulence control for wall friction reduction poses a significant challenge due to its computational expense associated with modeling turbulent dynamics. Opposition control is a straightforward yet effective method that estimates internal velocity and subsequently applies an opposing velocity at the wall boundary. Machine learning can be employed to obviate the need for sensors in the field. Here, a PDE observer model is trained to predict internal velocity at the detection plane based on wall pressure. However, this machine-learning-based opposition control still has limitations, as it cannot surpass the performance of classical opposition control, which serves as the ground truth. In this work, we present a distinct control scheme termed Physics-informed Neural-operator-based Predictive Control (PINO-PC). PINO-PC employs a policy model for finding the boundary velocity actuation from the boundary pressure observation, along with an observer model that predicts the evolution of the internal velocity field from boundary velocity actuation. The policy model and the observer model are jointly learned during the training procedure, and they work together to achieve optimized control. Additionally, we incorporate physics-informed loss to extend applicability to higher Reynolds numbers not present in the training data. 
+                        Turbulence control for wall friction reduction poses a significant challenge due to its computational expense associated with modeling turbulent dynamics. Opposition control is a straightforward yet effective method that estimates internal velocity and subsequently applies an opposing velocity at the wall boundary. Machine learning can be employed to obviate the need for sensors in the field. Here, a PDE observer model is trained to predict internal velocity at the detection plane based on wall pressure. However, this machine-learning-based opposition control still has limitations, as it cannot surpass the performance of classical opposition control, which serves as the ground truth. In this work, we present a distinct control scheme termed physics-informed neural-operator-based predictive control (PINO-PC). PINO-PC employs a policy model for finding the boundary velocity actuation from the boundary pressure observation, along with an observer model that predicts the evolution of the internal velocity field from boundary velocity actuation. The policy model and the observer model are jointly learned during the training procedure, and they work together to achieve optimized control. Additionally, we incorporate physics-informed loss to extend applicability to higher Reynolds numbers not present in the training data. 
 Experimental results demonstrate that the observer used in PINO-PC outperforms the ML-based state-of-the-art model MP-CNN in opposition control. Further, PINO-PC exhibits superior performance compared to previous optimal control methods and model-free reinforcement learning methods.
                     </p>
                 </div>
@@ -176,7 +176,7 @@ Experimental results demonstrate that the observer used in PINO-PC outperforms t
                             </li>
                             <li>
                                 3. <a href="https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/suboptimal-control-of-turbulent-channel-flow-for-drag-reduction/DE2E2C34ABE2F4863682DF351E381BEE">
-                                    <span style="font-weight: bold">Local Suboptimal</span></a>: a suboptimal control method, requiring only pressure or shear-stress data at the wall.
+                                    <span style="font-weight: bold">DNS-based PC</span></a>: a suboptimal control method, requiring only pressure or shear-stress data at the wall.
                             </li>
                             <li>
                                 4. <a href="https://link.springer.com/article/10.1140/epje/s10189-023-00285-8">
@@ -199,7 +199,7 @@ Experimental results demonstrate that the observer used in PINO-PC outperforms t
                                         onchange="updateDemoVideo('simple-object-manipulation')">
                                     <option value="PINO-PC" selected="selected">PINO-PC</option>
                                     <option value="Uncontrolled">Uncontrolled</option>
-                                    <option value="LocalSuboptimal">Local Suboptimal</option>
+                                    <option value="LocalSuboptimal">DNS-based PC</option>
                                     <option value="MARL">MARL</option>
                                     <option value="MP-CNN">MP-CNN</option>
                                 </select>
@@ -223,7 +223,7 @@ Experimental results demonstrate that the observer used in PINO-PC outperforms t
                                         onchange="updateDemoVideo('visual-goal-reaching')">
                                     <option value="Uncontrolled" selected="selected">Uncontrolled</option>
                                     <option value="PINO-PC">PINO-PC</option>
-                                    <option value="LocalSuboptimal">Local Suboptimal</option>
+                                    <option value="LocalSuboptimal">DNS-based PC</option>
                                     <option value="MARL">MARL</option>
                                     <option value="MP-CNN">MP-CNN</option>
                                 </select>
